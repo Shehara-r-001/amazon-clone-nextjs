@@ -30,7 +30,7 @@ function Header() {
         </div>
         <div className="text-white flex items-center text-xs space-x-4 mx-5 whitespace-nowrap">
           <div className="sublinks">
-            <p>Hello Strider</p>
+            <p>Hello Strider!</p>
             <p className="font-extrabold md:text-sm">Account & lists</p>
           </div>
           <div className="sublinks">
@@ -54,12 +54,12 @@ function Header() {
         <p className="sublinks flex items-center">
           <MenuIcon className="h-6 mr-1" /> All
         </p>
+        <p className="sublinks">Today&apos;s deals</p>
         <p className="sublinks">Prime Video</p>
         <p className="sublinks">Amazon Business</p>
-        <p className="sublinks">Today&apos;s deals</p>
         <p className="sublinks">Gift Cards</p>
-        <p className="sublinks hidden lg:inline-flex">Sell</p>
         <p className="sublinks hidden lg:inline-flex">Registry</p>
+        <p className="sublinks hidden lg:inline-flex">Sell</p>
       </div>
     </header>
   );
