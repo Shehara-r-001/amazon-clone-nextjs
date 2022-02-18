@@ -3,16 +3,35 @@ import React, { useState } from "react";
 import { StarIcon } from "@heroicons/react/solid";
 import Currency from "react-currency-formatter";
 import prime from "../images/prime.png";
+import { useDispatch } from "react-redux";
+import { addToBasket } from "../slices/bascketSlice";
 
 const maxRating = 5;
 const minRating = 1;
 
 function Product({ id, title, price, description, category, image }) {
+  const dispatch = useDispatch();
+
   const [rating, setRating] = useState(
     Math.floor(Math.random() * (maxRating - minRating + 1) + minRating)
   );
 
   const [hasPrime, setHasPrime] = useState(Math.random() < 0.5);
+
+  const addItemToBascket = () => {
+    const product = {
+      id,
+      title,
+      rating,
+      price,
+      description,
+      category,
+      image,
+      hasPrime,
+    };
+    //sending to redux store as an action
+    dispatch(addToBasket(product));
+  };
 
   return (
     <div className="relative flex flex-col bg-white m-5 p-10 z-30">
@@ -53,7 +72,9 @@ function Product({ id, title, price, description, category, image }) {
         </div>
       )}
 
-      <button className="button mt-auto">Add to Bascket</button>
+      <button onClick={addItemToBascket} className="button mt-auto">
+        Add to Bascket
+      </button>
     </div>
   );
 }
